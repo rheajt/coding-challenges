@@ -1,0 +1,16 @@
+{
+  "name": "codility-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --watch ./challenges/**/*.test.js ./challenges/**/*.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "random-array": "0.0.2"
+  }
+}
