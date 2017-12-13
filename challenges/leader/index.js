@@ -1,4 +1,3 @@
-
 function solution(A) {
   // write your code in JavaScript (Node.js 4.0.0)
 
@@ -67,6 +66,6 @@ module.exports = {
   tests: [
     // {title: '', args: '', expects: ''},
     {title: 'example values', args: [4,3,4,4,4,2], expects: 2},
-    // { title: 'test with random', args: random(-100, 100).oned(20) },
+    { title: 'test with random', args: Array.from({length: 40}, () => Math.floor(Math.random() * 40)) },
   ]
 };
