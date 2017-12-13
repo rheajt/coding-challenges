@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "temp": "node ./scripts/temp.js",
+    "new": "node ./scripts/newChallenge.js",
     "test": "mocha --watch ./challenges/**/*.test.js ./challenges/**/*.js"
   },
   "author": "",
