@@ -2,7 +2,7 @@
 const assert = require('chai').assert;
 const solution = require('./index');
 
-describe('dungeon', function() {
+describe('ransom-note', function() {
   
   solution.tests.forEach((test, ind) => (
     it(`${ test.title }`, () => {
