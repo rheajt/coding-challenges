@@ -5,22 +5,26 @@ function solution(A) {
   let giraffeGroups = [];
   let currentGroup = [];
 
-  let maxCount = maxCurrent = 0;
+  let maxHeight = 0;
 
   for(let i = 0; i < A.length; i++) {
     if(A[i] > A[i + 1]) {
+      //add current giraffe to the current group
       currentGroup.push(A[i]);
     } else {
-      if(maxCount > A[i]) {
+      //set max height if current giraffe is taller than previous maxheight
+      maxHeight = Math.max(maxHeight, A[i]);
+
+      //if the maxheight is higher than the current we return 1 group;
+      if(maxHeight > A[i]) {
         return 1;
       } else {
+        //add current giraffe, push current group, and reset the current group array;
         currentGroup.push(A[i]);
         giraffeGroups.push(currentGroup);
         currentGroup = [];
-
       }
     }
-    maxCount = Math.max(maxCount, A[i]);
   }
 
   return giraffeGroups.length;

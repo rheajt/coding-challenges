@@ -2,20 +2,19 @@ const fs = require('fs');
 
 const [title, description] = process.argv.slice(2);
 
-const indexStr = `
+const indexStr = `const randoms = require('../../tools/randomizer');
 function solution(A) {}
 
 module.exports = {
   solution,
   tests: [
     // {title: '', args: '', expects: ''},
-    // { title: 'test with random', args: random(-100, 100).oned(20) },
+    // { title: 'test with random', args: randoms.getNum(-100, 100) },
   ]
 };
 `;
 
-const testStr = `
-const assert = require('chai').assert;
+const testStr = `const assert = require('chai').assert;
 const solution = require('./index');
 
 describe(\'${title}\', function() {
