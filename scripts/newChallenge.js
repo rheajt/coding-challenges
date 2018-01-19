@@ -1,28 +1,26 @@
 const fs = require('fs');
+const slugify = require('slugify');
 
 const [title, description] = process.argv.slice(2);
 
-const indexStr = `
-function solution(A) {}
+const indexStr = `function solution(A) {}
 
 module.exports = {
   solution,
   tests: [
-    // {title: '', args: '', expects: ''},
-    // { title: 'test with random', args: random(-100, 100).oned(20) },
+    // {title: '', args: [], expects: true},
+    // MAKE SURE YOU TEST EXTREMES
   ]
 };
 `;
 
-const testStr = `
-const assert = require('chai').assert;
+const testStr = `const assert = require('chai').assert;
 const solution = require('./index');
 
 describe(\'${title}\', function() {
-  
+
   solution.tests.forEach((test, ind) => (
     it(\`\${ test.title }\`, () => {
-      console.log('\\n\\n');
       console.time(\`Time taken for \${ test.title }\`);
       const val = solution.solution(test.args);
       console.timeEnd(\`Time taken for \${ test.title }\`);
@@ -38,7 +36,12 @@ describe(\'${title}\', function() {
 })
 `;
 
-const dir = `${process.cwd()}/challenges/${title}`;
+const readmeStr = `# ${title}
+
+${description}
+`
+
+const dir = `${process.cwd()}/challenges/${slugify(title)}`;
 
 const index = `${dir}/index.js`;
 const test = `${dir}/index.test.js`;
@@ -48,6 +51,6 @@ if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
   fs.writeFileSync(index, indexStr);
   fs.writeFileSync(test, testStr);
-  fs.writeFileSync(readme);
+  fs.writeFileSync(readme, readmeStr);
 }
 

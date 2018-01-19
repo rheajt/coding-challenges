@@ -14,5 +14,8 @@
     "chai": "^4.1.2",
     "mocha": "^4.0.1",
     "random-array": "0.0.2"
+  },
+  "dependencies": {
+    "slugify": "^1.2.7"
   }
 }
