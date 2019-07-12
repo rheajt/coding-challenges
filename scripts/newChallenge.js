@@ -3,45 +3,36 @@ const slugify = require('slugify');
 
 const [title, description] = process.argv.slice(2);
 
-const indexStr = `function solution(A) {}
+const indexStr = `
+export default function solution(A) {}
 
-module.exports = {
-  solution,
-  tests: [
-    // {title: '', args: [], expects: true},
-    // MAKE SURE YOU TEST EXTREMES
-  ]
-};
+export const tests = [
+  // {title: '', args: [], expects: true},
+  // MAKE SURE YOU TEST EXTREMES
+];
 `;
 
-const testStr = `const assert = require('chai').assert;
-const solution = require('./index');
+const testStr = `
+import solution, {tests} from './index';
 
-describe(\'${title}\', function() {
-
-  solution.tests.forEach((test, ind) => (
-    it(\`\${ test.title }\`, () => {
-      console.time(\`Time taken for \${ test.title }\`);
-      const val = solution.solution(test.args);
-      console.timeEnd(\`Time taken for \${ test.title }\`);
-
-      if(test.expects) {
-        assert.strictEqual(val, test.expects);
-      } else {
-        console.log(\`The returned value is: \${ val }\`);
-        assert.exists(val, 'value is neither null nor undefined');
-      }
-    })
-  ));
+describe(\'${title}\', () => {
+  tests.forEach((test, ind) =>
+    it(\`${ind + 1}): ${test.title}\`, () => {
+      const val = solution(test.args);
+      expect(val).toEqual(test.expects);
+    }),
+  );
 })
 `;
 
 const readmeStr = `# ${title}
 
 ${description}
-`
+`;
 
-const dir = `${process.cwd()}/challenges/${slugify(title)}`;
+const dir = `${process.cwd()}/challenges/Miscellaneous-Challenges/${slugify(
+  title,
+)}`;
 
 const index = `${dir}/index.js`;
 const test = `${dir}/index.test.js`;
@@ -53,4 +44,3 @@ if (!fs.existsSync(dir)) {
   fs.writeFileSync(test, testStr);
   fs.writeFileSync(readme, readmeStr);
 }
-

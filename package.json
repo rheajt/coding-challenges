@@ -1,21 +1,25 @@
 {
-  "name": "codility-practice",
+  "name": "coding-challenges",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "creating a place to store the coding challenge practice that i complete",
   "scripts": {
-    "temp": "node ./scripts/temp.js",
     "new": "node ./scripts/newChallenge.js",
-    "test": "mocha --watch ./challenges/**/*.test.js ./challenges/**/*.js"
+    "test": "jest"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "jordan rhea <rheajt@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
-    "chai": "^4.1.2",
-    "mocha": "^4.0.1",
-    "random-array": "0.0.2"
+    "@types/jest": "^24.0.15",
+    "@types/typescript": "^2.0.0",
+    "axios": "^0.19.0",
+    "inquirer": "^6.5.0",
+    "jest": "^24.8.0",
+    "slugify": "^1.3.4",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
   },
-  "dependencies": {
-    "slugify": "^1.2.7"
+  "engines": {
+    "node": ">=12.3.1"
   }
 }
