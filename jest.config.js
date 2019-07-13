@@ -1,7 +1,7 @@
 module.exports = {
   testEnvironment: 'node',
   testMatch: ['**/__tests__/**/*.ts?(x)', '**/?(*.)+(spec|test).ts?(x)'],
-  roots: ['<rootDir>/challenges'],
+  roots: ['<rootDir>/typescript'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },

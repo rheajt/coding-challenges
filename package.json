@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "creating a place to store the coding challenge practice that i complete",
   "scripts": {
-    "new": "node ./scripts/newChallenge.js",
+    "new": "node ./scripts/challenge.js",
     "test": "jest"
   },
   "author": "jordan rhea <rheajt@gmail.com>",
